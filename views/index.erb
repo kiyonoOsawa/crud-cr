@@ -18,10 +18,12 @@
     <div class="list">
       <% for medicine in @medicine do%>
         <div class="item white-text">
+          <a href="/item/<%= medicine.id %>">
           <div class="text-box">
             <p><%= medicine.name%></p>
             <p><%= medicine.amount %>個</p>
           </div>
+          </a>
         </div>
       <% end %>
     </div>

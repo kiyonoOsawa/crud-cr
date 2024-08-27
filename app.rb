@@ -16,3 +16,21 @@ post "/item/create" do
     Medicine.create(name: params[:name], amount: params[:amount])
     redirect '/'
 end
+
+get "/item/:id" do
+    @id = params[:id]
+    @medicine = Medicine.find(params[:id])
+    erb :item
+end
+
+post "/item/:id" do
+    medicine = Medicine.find(params[:id])
+    medicine.update(name: params[:name], amount: params[:amount])
+    redirect "/"
+end
+
+get "/item/:id/delete" do
+    medicine = Medicine.find(params[:id])
+    medicine.destroy
+    redirect "/"
+end
